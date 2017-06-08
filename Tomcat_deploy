@@ -1,0 +1,7 @@
+node {
+def mvnHome
+git 'https://github.com/gt-python-16/WSJ.git'
+mvnHome = tool 'Maven 3.5.0'
+stage('Build & Deploy') {
+    sh "'${mvnHome}/bin/mvn' clean package tomcat7:"+params.goal}
+}
